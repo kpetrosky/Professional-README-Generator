@@ -41,35 +41,59 @@ console.log(markup, style, scripting);
 console.log(markup);
 // TODO: Create an array of questions for user input
 
+// Call the functions to generate and write the README file
+
+const inquirer = require('inquirer');
+
+function init() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'title',
+                message: 'What is the name of your README?',
+            },
+            {
+                type: 'input',
+                name: 'description',
+                message: 'Please describe your application?',
+            },
+            {
+                type: 'input',
+                name: 'author',
+                message: 'Who wrote the README?',
+            }
+        ])
+        .then((response) => {
+            fs.writeFile("input.json", JSON.stringify(response), function (err) {
+                if (err) {
+                    console.log('Error:', err);
+                } else {
+                    console.log('Success!');
+                }
+            });
+        });
+}
+// Function call to initialize app
+init();
 
 // TODO: Create a function to write README file
 
 const fs = require('fs');
 
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => {
-        if (err) {
-            console.error(err);
-        } else {
-            console.log(`${fileName} file generated successfully!`);
-        }
-    });
+  fs.writeFile(fileName, data, err => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(`${fileName} file generated successfully!`);
+    }
+  });
 }
 
-
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => {
-        if (err) {
-            console.error(err);
-        } else {
-            console.log(`${fileName} file generated successfully!`);
-        }
-    });
-}
-
-function readmeContent(title, description, installation, usage, contributing, tests, license) {
-    // Construct the content of the README file using the provided parameters
-    const readmeContent = `# ${title}
+function generateReadme(title, description, installation, usage, contributing, tests, license) {
+  // Construct the content of the README file using the provided parameters
+  const readmeContent = `# ${title}
 
 ${description}
 
@@ -94,48 +118,7 @@ ${tests}
 ${license}
 
 ${new Date().getFullYear()}  Name`;
-    
-    // Return the generated content
-    return readmeContent;
+
+  // Write the generated content to a file
+  writeToFile('README.md', readmeContent);
 }
-
-// Call the functions to generate and write the README file
-const content = readmeContent('My Project', 'A short description of my project', 'npm install', 'node index.js', 'Contributions welcome!', 'npm test', 'MIT License');
-writeToFile('README.md', content);
-
-
-
-
-// TODO: Create a function to initialize app
-function init() {
-    const inquirer = require('inquirer');
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                name: 'Title of README',
-                message: 'What is the name of your README?', //recommended to use a name that represents the project. I.E. Professional-README-generator.
-            },
-            {
-                type: 'input',
-                name: 'describe',
-                message: 'Please decribe your application?', //recommended to be clear and use screen shots as needed
-
-            },
-            {
-                type: 'input',
-                name: 'author',
-                message: 'Who wrote the README?', // include all contributors
-            }
-        ])
-        .then((response) => {
-            fs.writeFile("input.json", JSON.stringify(response), function (err) {
-                if (err) {
-                    console.log('Success!')
-                }
-            });
-        });
-}
-
-// Function call to initialize app
-init()
