@@ -10,76 +10,12 @@ const { name, type } = nodejs;
 console.log(name);
 console.log(type);
 
-
-const js = {
-    name: 'JavaScript',
-    type: 'programming language',
-    version: 'ES6',
-    tools: {
-        frameworks: {
-            framework1: 'AngularJS',
-            framework2: 'Vue.js',
-        },
-        libraries: {
-            library1: 'jQuery',
-            library2: 'React',
-        },
-    },
-};
-
-const { framework1, framework2 } = js.tools.frameworks;
-
-console.log(framework1);
-console.log(framework2);
-
-
-const languages = ['HTML', 'CSS', 'JavaScript'];
-
-const [markup, style, scripting] = languages;
-
-console.log(markup, style, scripting);
-console.log(markup);
 // TODO: Create an array of questions for user input
 
 // Call the functions to generate and write the README file
 
-const inquirer = require('inquirer');
-
-function init() {
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                name: 'title',
-                message: 'What is the name of your README?',
-            },
-            {
-                type: 'input',
-                name: 'description',
-                message: 'Please describe your application?',
-            },
-            {
-                type: 'input',
-                name: 'author',
-                message: 'Who wrote the README?',
-            }
-        ])
-        .then((response) => {
-            fs.writeFile("input.json", JSON.stringify(response), function (err) {
-                if (err) {
-                    console.log('Error:', err);
-                } else {
-                    console.log('Success!');
-                }
-            });
-        });
-}
-// Function call to initialize app
-init();
-
-// TODO: Create a function to write README file
-
 const fs = require('fs');
+const inquirer = require('inquirer');
 
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, err => {
@@ -91,34 +27,81 @@ function writeToFile(fileName, data) {
   });
 }
 
-function generateReadme(title, description, installation, usage, contributing, tests, license) {
-  // Construct the content of the README file using the provided parameters
-  const readmeContent = `# ${title}
-
-${description}
-
-## Installation
-
-${installation}
-
-## Usage
-
-${usage}
-
-## Contributing
-
-${contributing}
-
-## Tests
-
-${tests}
-
-## License
-
-${license}
-
-${new Date().getFullYear()}  Name`;
-
-  // Write the generated content to a file
-  writeToFile('README.md', readmeContent);
+function generateMarkdown(data) {
+  // TODO: Generate markdown content for README file based on user's responses
+  return '';
 }
+
+function init(data) {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'title',
+        message: 'What is the name of your README?',
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: 'Please describe your application?',
+      },
+      {
+        type: 'input',
+        name: 'author',
+        message: 'Who wrote the README?',
+      },
+      {
+        type:'input',
+        name: 'installation',
+        message: 'how to install?',
+      },
+      {
+        type:'input',
+        name: 'usage',
+        message: 'How you should plan to use?',
+      },
+      {
+        type:'input',
+        name: 'contributing',
+        message: 'Who is contributing to this application?',
+      },
+      {
+        type:'input',
+        name: 'test',
+        message: 'What tests should be run?',
+      },
+      {
+        type:'input',
+        name: 'license',
+        message: 'What license does this application have?',
+      },
+    ])
+    .then((response) => {
+      const markdown = generateMarkdown(response);
+      writeToFile('README.md', markdown);
+    });
+}
+
+// Function call to initialize app
+init();
+
+
+// TODO: Create a function to write README file
+
+writeToFile('README.md', process.argv[2]); {
+  fs.writeFile(fileName, data, err => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(`${fileName} file generated successfully!`);
+    }
+  });
+}
+
+
+
+fs.appendFile('README.md', `${process.argv[2]}\n`, (err) => {
+    if (err) throw err;
+    console.log('The input was successfully appended to the README file.');
+});
+  
