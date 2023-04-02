@@ -32,7 +32,7 @@ function generateMarkdown(data) {
   return '';
 }
 
-function init(data) {
+function init() {
   inquirer
     .prompt([
       {
@@ -53,7 +53,7 @@ function init(data) {
       {
         type:'input',
         name: 'installation',
-        message: 'how to install?',
+        message: 'How to install?',
       },
       {
         type:'input',
@@ -85,23 +85,7 @@ function init(data) {
 // Function call to initialize app
 init();
 
-
-// TODO: Create a function to write README file
-
-writeToFile('README.md', process.argv[2]); {
-  fs.writeFile(fileName, data, err => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log(`${fileName} file generated successfully!`);
-    }
-  });
-}
-
-
-
 fs.appendFile('README.md', `${process.argv[2]}\n`, (err) => {
-    if (err) throw err;
-    console.log('The input was successfully appended to the README file.');
+  if (err) throw err;
+  console.log('The input was successfully appended to the README file.');
 });
-  
