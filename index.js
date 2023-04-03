@@ -31,7 +31,10 @@ function generateMarkdown(data) {
   // TODO: Generate markdown content for README file based on user's responses
   return '';
 }
-
+fs.appendFile('README.md', `${process.argv[0]}\n`, (err) => {
+    if (err) throw err;
+    console.log('The input was successfully appended to the README file.');
+  });
 function init() {
   inquirer
     .prompt([
@@ -85,7 +88,4 @@ function init() {
 // Function call to initialize app
 init();
 
-fs.appendFile('README.md', `${process.argv[2]}\n`, (err) => {
-  if (err) throw err;
-  console.log('The input was successfully appended to the README file.');
-});
+
