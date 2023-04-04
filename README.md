@@ -1,9 +1,9 @@
 
-# randsaf
+# Professional random Readme thingy
 
 ## Description
 
-hfdjksla
+This application will allow users to do random things at random times.
 
 ## Table of Contents
 
@@ -15,20 +15,20 @@ hfdjksla
 
 ## Installation
 
-fjkla
+Please make sure to install node
 
 ## Usage
 
-fjdkla
+This application should be used every day for best practices.
 
 ## Contributing
 
-fjkdal
+At this time, only I have contributed.
 
 ## Tests
 
-fjdkla
+all test should be ran.
 
 ## License
 
-This project is licensed under the fjkda;l\ license.
+This project is licensed under the none at this time. license.
