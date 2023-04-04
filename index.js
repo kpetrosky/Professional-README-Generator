@@ -27,19 +27,58 @@ function writeToFile(fileName, data) {
   });
 }
 
-function generateMarkdown(data) {
+
+function generateReadmeMarkdown(data) {
   // TODO: Generate markdown content for README file based on user's responses
   //generate markdown
   //have to use markdown stringy to use data (readme for chall 9)
   // using professional readme file
-  return '';
+  return `
+# ${data.title}
+
+## Description
+
+${data.description}
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [License](#license)
+
+## Installation
+
+${data.installation}
+
+## Usage
+
+${data.usage}
+
+## Contributing
+
+${data.contributing}
+
+## Tests
+
+${data.test}
+
+## License
+
+This project is licensed under the ${data.license} license.
+`;
 }
-fs.appendFile('README.md', `${process.argv[0]}\n`, (err) => {
+
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) => {
     if (err) throw err;
-    console.log('The input was successfully appended to the README file.');
+    console.log(`The README was successfully created in ${fileName}.`);
   });
-  
+}
+
 function init() {
+  const inquirer = require('inquirer');
   inquirer
     .prompt([
       {
@@ -84,12 +123,13 @@ function init() {
       },
     ])
     .then((response) => {
-      const markdown = generateMarkdown(response);
+      const markdown = generateReadmeMarkdown(response);
       writeToFile('README.md', markdown);
     });
 }
 
 // Function call to initialize app
 init();
+
 
 
