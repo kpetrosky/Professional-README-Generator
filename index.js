@@ -29,6 +29,9 @@ function writeToFile(fileName, data) {
 
 function generateMarkdown(data) {
   // TODO: Generate markdown content for README file based on user's responses
+  //generate markdown
+  //have to use markdown stringy to use data (readme for chall 9)
+  // using professional readme file
   return '';
 }
 fs.appendFile('README.md', `${process.argv[0]}\n`, (err) => {

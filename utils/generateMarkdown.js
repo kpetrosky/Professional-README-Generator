@@ -45,30 +45,30 @@ function info(title, description) {
 
 ${description}
 
-// ## Table of Contents
-// - [Installation](#installation)
-// - [Usage](#usage)
-// - [Contributing](#contributing)
-// - [License](#license)
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-// ## Installation
-// - Clone the repository: \`git clone https://github.com/your-username/your-project.git\`
-// - Install dependencies: \`npm install\`
+## Installation
+- Clone the repository: \`git clone https://github.com/your-username/your-project.git\`
+- Install dependencies: \`npm install\`
 
-// ## Usage
-// - Run the project: \`npm start\`
-// - Open in your browser: \`http://localhost:3000\`
+## Usage
+- Run the project: \`npm start\`
+- Open in your browser: \`http://localhost:3000\`
 
-// ## Contributing
-// 1. Fork the repository
-// 2. Create a new feature branch: \`git checkout -b feature/your-feature-name\`
-// 3. Commit your changes: \`git commit -am 'Add some feature'\`
-// 4. Push to the branch: \`git push origin feature/your-feature-name\`
-// 5. Submit a pull request
+## Contributing
+1. Fork the repository
+2. Create a new feature branch: \`git checkout -b feature/your-feature-name\`
+3. Commit your changes: \`git commit -am 'Add some feature'\`
+4. Push to the branch: \`git push origin feature/your-feature-name\`
+5. Submit a pull request
 
-// ## License
-// This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-// `;
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+`;
  }
 
 // function generateMarkdown(data) {
