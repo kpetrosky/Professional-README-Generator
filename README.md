@@ -1,9 +1,9 @@
 
-# Professional random Readme thingy
+# Professional README generator
 
 ## Description
 
-This application will allow users to do random things at random times.
+This application is setup for the user to easily set up their readme for which oever application they are working.
 
 ## Table of Contents
 
@@ -15,20 +15,20 @@ This application will allow users to do random things at random times.
 
 ## Installation
 
-Please make sure to install node
+To install, users must follow the steps provided. 
 
 ## Usage
 
-This application should be used every day for best practices.
+This application will assist in setting up the README of a github application. 
 
 ## Contributing
 
-At this time, only I have contributed.
+No one else contributed to this application.
 
 ## Tests
 
-all test should be ran.
+Normally all testign should be done, but in this case none.
 
 ## License
 
-This project is licensed under the none at this time. license.
+This project is licensed under the None license.
