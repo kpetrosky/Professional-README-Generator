@@ -35,6 +35,7 @@ fs.appendFile('README.md', `${process.argv[0]}\n`, (err) => {
     if (err) throw err;
     console.log('The input was successfully appended to the README file.');
   });
+  
 function init() {
   inquirer
     .prompt([
